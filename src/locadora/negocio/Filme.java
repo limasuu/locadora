@@ -7,10 +7,19 @@ public class Filme {
 	private String diretores;
 	private int ano;
 	private double preco;
-	private int quantidade;
 	private String descricao; 
 	
 	public Filme () { }
+	
+	public Filme(String idFilme, String titulo, String diretores, int ano, double preco, String descricao) {
+		
+		this.idFilme = idFilme;
+		this.titulo = titulo;
+		this.diretores = diretores;
+		this.ano = ano;
+		this.preco = preco;
+		this.descricao = descricao;
+	}
 
 	public String getIdFilme() {
 		return idFilme;
@@ -52,14 +61,6 @@ public class Filme {
 		this.preco = preco;
 	}
 
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-
 	public String getDescricao() {
 		return descricao;
 	}
@@ -67,4 +68,10 @@ public class Filme {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	@Override
+	public String toString() {
+		return "Id: " + idFilme + "\nTítulo: " + titulo + "\nDiretores: " + diretores + "\nAno: " + ano
+				+ "\nPreço: " + preco + "\nDescrição: " + descricao;
+	}	
 }
