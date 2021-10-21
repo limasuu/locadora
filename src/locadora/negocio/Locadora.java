@@ -126,7 +126,10 @@ public class Locadora {
 			filme.setQuantidadeEstoque(novaQuantidade);
 			
 		}else 
-			throw new AluguelException("Filme " + idFilme + " sem estoque suficiente.");
+			throw new AluguelException("Filme " + idFilme + " sem estoque suficiente.");		
+	}
+	
+	public void fechar() {
 		
 	}
 }
