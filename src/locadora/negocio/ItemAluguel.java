@@ -29,7 +29,7 @@ public class ItemAluguel {
 
 	@Override
 	public String toString() {
-		return item + "\nQuantidade do item: " + quantidade;
+		return item + "\nQuantidade do aluguel: " + quantidade;
 	}
 	
 	

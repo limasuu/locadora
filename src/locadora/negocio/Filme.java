@@ -7,17 +7,19 @@ public class Filme {
 	private String diretores;
 	private int ano;
 	private double preco;
+	private int quantidadeEstoque;
 	private String descricao; 
 	
 	public Filme () { }
 	
-	public Filme(String idFilme, String titulo, String diretores, int ano, double preco, String descricao) {
+	public Filme(String idFilme, String titulo, String diretores, int ano, double preco, int quantidadeEstoque, String descricao) {
 		
 		this.idFilme = idFilme;
 		this.titulo = titulo;
 		this.diretores = diretores;
 		this.ano = ano;
 		this.preco = preco;
+		this.quantidadeEstoque = quantidadeEstoque;
 		this.descricao = descricao;
 	}
 
@@ -57,6 +59,14 @@ public class Filme {
 		return preco;
 	}
 
+	public int getQuantidadeEstoque() {
+		return quantidadeEstoque;
+	}
+
+	public void setQuantidadeEstoque(int quantidadeEstoque) {
+		this.quantidadeEstoque = quantidadeEstoque;
+	}
+
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
@@ -72,6 +82,6 @@ public class Filme {
 	@Override
 	public String toString() {
 		return "Id: " + idFilme + "\nTítulo: " + titulo + "\nDiretores: " + diretores + "\nAno: " + ano
-				+ "\nPreço: " + preco + "\nDescrição: " + descricao;
+				+ "\nPreço: " + preco+ "\nQuantidade em estoque: " + quantidadeEstoque  + "\nDescrição: " + descricao;
 	}	
 }
