@@ -15,7 +15,7 @@ import locadora.negocio.excecao.CarrinhoException;
 import locadora.negocio.excecao.FilmeNaoEncontradoException;
 
 
-@WebServlet(name= "ServletControladorLocadora", urlPatterns= {"/inicio", "/catalogo"})
+@WebServlet(name= "ServletControladorLocadora", urlPatterns= {"/inicio", "/catalogo", "/detalhesFilme", "/mostrarCarrinho", "/alugar", "/recibo"})
 public class ServletControladorLocadora extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
