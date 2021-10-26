@@ -17,9 +17,32 @@ header h1{
 }
 
 main{
-	height: 370px;
+	height: 370px;	
+	overflow: scroll;
 	
-	font-weight: bold;	
+	padding: 10px 0 10px 0;
+}
+
+.titulo{
+	font-weight: bold;			
+}
+
+.nome-filme{
+	min-width: 400px;			
+}
+
+.preco-filme{
+	width: 100px;
+	text-align: center;
+}
+
+.alugar-filme{
+	width: 200px;
+	text-align: center;
+}
+
+.destaque-filme{
+	background-color: #f3f3f3;	
 }
 
 footer{

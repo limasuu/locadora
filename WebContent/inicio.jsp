@@ -16,7 +16,7 @@
 		</header>
 		
 		<main>
-			<p>Locadora Virtual</p>
+			<p class="titulo">Locadora Virtual</p>
 			<c:url var="url" value="/catalogo"/>
 			
 			<p><a href="${url}?Add=">Iniciar aluguel</a></p>
