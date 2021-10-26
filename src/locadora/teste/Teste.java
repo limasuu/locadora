@@ -2,14 +2,14 @@ package locadora.teste;
 
 import locadora.negocio.CarrinhoAluguel;
 import locadora.negocio.Filme;
-import locadora.negocio.ItemAluguel;
 import locadora.negocio.Locadora;
 import locadora.negocio.excecao.AluguelException;
+import locadora.negocio.excecao.CarrinhoException;
 import locadora.negocio.excecao.FilmeNaoEncontradoException;
 
 public class Teste {
 
-	public static void main(String[] args) throws FilmeNaoEncontradoException, AluguelException {
+	public static void main(String[] args) throws FilmeNaoEncontradoException, AluguelException, CarrinhoException {
 
 		Locadora locadora= new Locadora();
 		
@@ -23,15 +23,13 @@ public class Teste {
 		CarrinhoAluguel carrinho= new CarrinhoAluguel();
 
 		carrinho.adicionar(filme1);
-		carrinho.adicionar(filme1);
-		carrinho.adicionar(filme1);
 		carrinho.adicionar(filme2);
 
 		System.out.println("Número de itens: " + carrinho.getNumeroItens());
 		System.out.println("Total: R$ " + carrinho.getTotal() + "\n");
 
-		for(ItemAluguel item : carrinho.getItens())
-			System.out.println(item + "\n");
+		for(Filme filme : carrinho.getItens())
+			System.out.println(filme + "\n");
 
 		System.out.println("===========================");
 
@@ -40,8 +38,8 @@ public class Teste {
 		System.out.println("Número de itens: " + carrinho.getNumeroItens());
 		System.out.println("Total: R$ " + carrinho.getTotal() + "\n");
 
-		for(ItemAluguel item : carrinho.getItens())
-			System.out.println(item + "\n");
+		for(Filme filme : carrinho.getItens())
+			System.out.println(filme + "\n");
 
 		System.out.println("===========================");
 

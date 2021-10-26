@@ -4,61 +4,50 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import locadora.negocio.excecao.CarrinhoException;
+
 public class CarrinhoAluguel {
 
-	private HashMap<String, ItemAluguel> itens;
+	private HashMap<String, Filme> itens;
 
 	public CarrinhoAluguel() {
 
-		itens= new HashMap<String, ItemAluguel>();
+		itens= new HashMap<String, Filme>();
 	}
 
-	public synchronized void adicionar(Filme filme) {
-
-		if(itens.containsKey(filme.getIdFilme())) {
-			ItemAluguel item= itens.get(filme.getIdFilme());
-			item.incrementaQuantidade();
-		}else {
-			ItemAluguel item= new ItemAluguel(filme);
-			itens.put(filme.getIdFilme(), item);
-		}
+	public synchronized void adicionar(Filme filme) throws CarrinhoException {
+		
+		if(!itens.containsKey(filme.getIdFilme())) 			
+			itens.put(filme.getIdFilme(), filme);		
+		else
+			throw new CarrinhoException("O filme " + filme.getIdFilme() + " já está no carrinho.");
 	}
 
 	public synchronized void remover(String idFilme) {
 
-		if(itens.containsKey(idFilme)) {
-			ItemAluguel item= itens.get(idFilme);
-			item.decrementaQuantidade();
-
-			if(item.getQuantidade() == 0)
-				itens.remove(idFilme);
-		}
+		if(itens.containsKey(idFilme)) 
+			itens.remove(idFilme);		
 	}
 
-	public synchronized List<ItemAluguel> getItens() {
+	public synchronized List<Filme> getItens() {
 
-		List<ItemAluguel> lista= new ArrayList<ItemAluguel>();
+		List<Filme> lista= new ArrayList<Filme>();
 		lista.addAll(itens.values());
 
 		return lista;
 	}
 
 	public synchronized int getNumeroItens() {
-
-		int numero= 0;
-
-		for(ItemAluguel item : itens.values())
-			numero+= item.getQuantidade();
-
-		return numero;
+		
+		return itens.size();
 	}
 
 	public synchronized double getTotal() {
 
 		double total= 0.0;
 
-		for(ItemAluguel item : itens.values())
-			total+= item.getQuantidade() * item.getItem().getPreco();
+		for(Filme filme : itens.values())
+			total+= filme.getPreco();
 
 		return total;
 	}
@@ -67,5 +56,4 @@ public class CarrinhoAluguel {
 
 		itens.clear();
 	}
-
 }

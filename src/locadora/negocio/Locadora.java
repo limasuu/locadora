@@ -98,17 +98,17 @@ public class Locadora {
 
 	public void alugarFilmes(CarrinhoAluguel carrinho) throws AluguelException{
 
-		Collection<ItemAluguel> itens= carrinho.getItens();
-		Iterator<ItemAluguel> i= itens.iterator();
+		Collection<Filme> itens= carrinho.getItens();
+		Iterator<Filme> i= itens.iterator();
 
 		while(i.hasNext()) {
 
-			ItemAluguel item= (ItemAluguel) i.next();
-			alugarFilme(item.getItem().getIdFilme(), item.getQuantidade());
+			Filme filme= (Filme) i.next();
+			alugarFilme(filme.getIdFilme());
 		}
 	}
 
-	private void alugarFilme(String idFilme, int quantidade) throws AluguelException {
+	private void alugarFilme(String idFilme) throws AluguelException {
 
 		Filme filme;
 
@@ -121,8 +121,8 @@ public class Locadora {
 
 		int quantidadeEstoque= filme.getQuantidadeEstoque();
 
-		if(quantidadeEstoque - quantidade >= 0) {
-			int novaQuantidade= quantidadeEstoque - quantidade;
+		if(quantidadeEstoque - 1 >= 0) {
+			int novaQuantidade= quantidadeEstoque - 1;
 			filme.setQuantidadeEstoque(novaQuantidade);
 			
 		}else 
