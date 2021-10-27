@@ -11,9 +11,9 @@ import javax.servlet.http.HttpSession;
 import locadora.negocio.CarrinhoAluguel;
 import locadora.negocio.Filme;
 import locadora.negocio.Locadora;
+import locadora.negocio.excecao.AluguelException;
 import locadora.negocio.excecao.CarrinhoException;
 import locadora.negocio.excecao.FilmeNaoEncontradoException;
-
 
 @WebServlet(name= "ServletControladorLocadora", urlPatterns= {"/inicio", "/catalogo", "/detalhesFilme", "/mostrarCarrinho", "/alugar", "/recibo"})
 public class ServletControladorLocadora extends HttpServlet {
@@ -65,7 +65,16 @@ public class ServletControladorLocadora extends HttpServlet {
 			
 			limpar= request.getParameter("limpar");
 			if((limpar != null) && (limpar.equals("limpar")))
-					carrinho.limpar();			
+					carrinho.limpar();	
+			
+		}else if(acao.equals("/recibo")) {
+			
+			try {
+				locadora.alugarFilmes(carrinho);
+				
+			}catch (AluguelException e) {
+				System.err.println(e.getMessage());
+			}	
 		}
 
 		String tela= acao + ".jsp";
