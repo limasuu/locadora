@@ -28,6 +28,7 @@ public class ServletControladorLocadora extends HttpServlet {
 
 		String idFilme= null;
 		Filme filme= null;		
+		String limpar= null;
 		
 		Locadora locadora= (Locadora) getServletContext().getAttribute(
 				LocadoraContextListener.NOME_SISTEMA);
@@ -56,10 +57,16 @@ public class ServletControladorLocadora extends HttpServlet {
 					System.err.println(e.getMessage());
 				}
 			}
+		}else if(acao.equals("/mostrarCarrinho")) {
+			
+			idFilme= request.getParameter("remover");
+			if(idFilme != null)
+				carrinho.remover(idFilme);
+			
+			limpar= request.getParameter("limpar");
+			if((limpar != null) && (limpar.equals("limpar")))
+					carrinho.limpar();			
 		}
-
-
-
 
 		String tela= acao + ".jsp";
 

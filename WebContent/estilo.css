@@ -33,16 +33,22 @@ main{
 
 .preco-filme{
 	width: 100px;
-	text-align: center;
 }
 
-.alugar-filme{
+.alugar-filme, .remover-filme{
 	width: 200px;
+}
+
+.preco-filme, .alugar-filme, .remover-filme{	
 	text-align: center;
 }
 
 .destaque-filme{
 	background-color: #f3f3f3;	
+}
+
+.aviso{
+	color: red;
 }
 
 footer{
