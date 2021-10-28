@@ -7,6 +7,7 @@
 		<meta charset="UTF-8"/>
 		<title>Locadora Virtual</title>
 		<link rel="stylesheet" type="text/css" href="estilo.css"/>
+		<script type="text/javascript" src="script.js"></script>
 	</head>
 	<body>
 	
